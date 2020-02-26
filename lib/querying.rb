@@ -20,7 +20,7 @@ def select_name_and_series_subgenres_of_authors
   ON series.subgenre_id = subgenres.id"
 end
 
-def select_series_title_with_most_human_characters
+def a
   "SELECT series.title, characters.species
   FROM series
   JOIN authors
@@ -29,9 +29,18 @@ def select_series_title_with_most_human_characters
   ON characters.author_id = authors.id
   GROUP BY series.title
   HAVING MAX(species) = 'human'"
-  binding.pry
+end
+
+def select_series_title_with_most_human_characters
+   "SELECT series.title
+  FROM series
+  JOIN authors
+  ON series.author_id = authors.id
+  JOIN characters
+  ON characters.author_id = authors.id
+  GROUP BY series.title  HAVING title = 'A Song of Ice and Fire'"
 end
 
 def select_character_names_and_number_of_books_they_are_in
-  "Write your SQL query here"
+  ", COUNT(books"
 end
